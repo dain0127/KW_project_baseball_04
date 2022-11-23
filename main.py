@@ -14,6 +14,7 @@ def take_number():
     numbers = [] #비어있는 list 생성
     print("숫자 3개를 입력해주세요")
     while len(numbers) < 3 :
+        #{0}, {1} .. 순으로 인자 값이 문자열 안으로 대입됨.
         num = int(input("{}번째 숫자 입력 : ".format(len(numbers)+1)))
         if num < 0 and num > 9:
             print("범위에서 벗어났습니다.")
