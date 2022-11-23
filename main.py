@@ -42,25 +42,30 @@ def get_result(answer_numbers, guess_numbers):
     return S, B
 
 
-print("숫자야구 게임에 오신걸 환영합니다")
-print("계속하기를 원하시면 go를 입력해주세요.")
-print("종료를 원하시면 quit을 입력해주세요.")
-count = 0
-answer_numbers = generate_number()
 
-#테스트용
-print("answer_numbers : ",answer_numbers)
-while True :
-    command = input("command :")
-    if command == "go" :
-        guess_numbers = take_number()
-        #S와 B에 각각 반환값으로 초기화
-        S, B = get_result(answer_numbers, guess_numbers)
-        print(S,"S ",B,"B")
-        count += 1
-        if S == 3:
-            print("축하합니다. ", count, "번만에 통과했습니다.")
+try:
+    print("숫자야구 게임에 오신걸 환영합니다")
+    print("계속하기를 원하시면 go를 입력해주세요.")
+    print("종료를 원하시면 quit을 입력해주세요.")
+    count = 0
+    answer_numbers = generate_number()
+
+    #테스트용
+    print("answer_numbers : ",answer_numbers)
+    while True :
+        command = input("command :")
+        if command == "go" :
+            guess_numbers = take_number()
+            #S와 B에 각각 반환값으로 초기화
+            S, B = get_result(answer_numbers, guess_numbers)
+            print(S,"S ",B,"B")
+            count += 1
+            if S == 3:
+                print("축하합니다. ", count, "번만에 통과했습니다.")
+                break
+        elif command == "quit" :
             break
-    elif command == "quit" :
-        break
-
+except Exception as err:
+    print("예외가 발생했습니다. ({0})".format(err))
+finally :
+    print("프로그램을 종료합니다.")
